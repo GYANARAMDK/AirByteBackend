@@ -3,10 +3,10 @@ const OrderModel = require('../Model/OrderModel');
 
 const OrderGetControler = async (req, res) => {
     try {
-        const userid = req.user.id;
-
-        const Orders = await OrderModel.aggregate([{ $match: { userid: userid } },
-        { $lookup: { from: 'Users', localField: 'userid', foreignField: '_id', as: userDetails } },
+        // const userid = req.user.id;
+       
+        const Orders = await OrderModel.aggregate([{ $match: { userid: "userid"} },
+        { $lookup: { from: 'Users', localField: 'userid', foreignField: '_id', as: "userDetails" } },
         { $unwind: { path: '$userDetails' } },
         {
             $project: {
@@ -18,7 +18,7 @@ const OrderGetControler = async (req, res) => {
                 createdAt: 1,
                 user: {
                     name: '$userDetails.name',
-                    email: '$userDetails.email',
+                    
                     phone: '$userDetails.phone',
                 },
             },

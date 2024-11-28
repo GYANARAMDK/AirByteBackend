@@ -11,6 +11,10 @@ const app=express();
 dotenv.config();
 
 app.use(cors()); 
+app.use((req,res,next)=>{
+    console.log(`${req.path} and ${req.method}`)
+    next();
+})
 app.use(express.json());
 app.use(cookieParser(''));
 
@@ -32,10 +36,11 @@ mongoose.connect(process.env.MONGODB_URL)
 })
 
 
-app.use('api/user',AuthRouter);
-app.use('api/user/order',verifyAuthentication,OrderRouter);
-app.use('api/user/cart',verifyAuthentication,CartRouter);
-app.use('api/search',SearchRouter);
+app.use('/user',AuthRouter);
+// app.use('/user/orders',verifyAuthentication,OrderRouter);
+app.use('/user/order',OrderRouter);
+app.use('/user/cart',verifyAuthentication,CartRouter);
+app.use('/products/search',SearchRouter);
 
 app.get('/',(req,res)=>{
     res.send("server is started")

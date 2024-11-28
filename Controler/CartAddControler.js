@@ -4,6 +4,7 @@ const CartAddControler = async (req, res) => {
 
     try {
         const userid = req.user.id;
+    
         const { productId, quantity, price } = req.body;
         const user = await UserModel.findById(userid)
         if (!user) {

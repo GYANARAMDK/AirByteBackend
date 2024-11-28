@@ -7,14 +7,14 @@ const UserModel = require('../Model/UserModel.js')
 
 const SignUpControler = async (req, res) => {
     const { name, phone, password } = req.body;
-
+    console.log('SignUp route hit'); // Add this
     try {
-        const NewUser = await UserModel.findOne({ phone })
-        if (NewUser) {
+        const ExistingUser = await UserModel.findOne({ phone })
+        if (ExistingUser) {
             return res.status(400).json({ message: 'Phone number already registered' });
         }
-        const encryptedpassword = CryptoJS.AES.encrypt(password,process.env.SECRET_KEY).toString();
-        NewUser= new UserModel({
+        const encryptedpassword = CryptoJS.AES.encrypt(password,process.env.SECRET_KEY_PASSWORD).toString();
+        const NewUser= new UserModel({
             name,
             password:encryptedpassword,
             phone

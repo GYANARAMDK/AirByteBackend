@@ -6,4 +6,4 @@ const router=express.Router();
 
 router.get('/',SearchControler);
 
-module.exports=SearchControler;
+module.exports=router;

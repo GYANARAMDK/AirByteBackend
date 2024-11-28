@@ -2,12 +2,12 @@ const OrderModel = require('../Model/OrderModel');
 
 const OrderPostControler= async(req,res)=>{
          try {
-            const { products, shippingAddress, paymentMethod, totalPrice } = req.body;
+            const { Products, shippingAddress, paymentMethod, totalPrice } = req.body;
             const userId = req.user.id;
-
+         
             const NewOrder= new OrderModel({
                 userid:userId,
-                products:products.map((product)=>({
+                products:Products.map((product)=>({
                     productId:product.productId,
                     quantity:product.quantity,
                     price:product.price,

@@ -6,7 +6,7 @@ const UserSchema=mongoose.Schema({
     phone:{type: String,required:true,unique:true},
     password:{type: String,required:true,unique:false},
     CartArray:[{
-        productId:{type:mongoose.Schema.Types.ObjectId,required:true, ref:'product'},
+        productId:{type:mongoose.Schema.Types.ObjectId,required:true, ref:'Product'},
         quantity:{type:Number,default:1,required:true},
         price:{type:Number,required:true},
     }],

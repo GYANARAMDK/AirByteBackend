@@ -3,6 +3,7 @@ const UserModel = require('../Model/UserModel');
 const CartRemoveControler = async (req, res) => {
     try {
         const userid = req.user.id;
+
         const { productId } = req.body;
         const user = await UserModel.findByIdAndUpdate(userid,
             { $pull: { CartArray: { productId } } },
