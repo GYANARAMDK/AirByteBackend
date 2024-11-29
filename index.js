@@ -38,7 +38,6 @@ mongoose.connect(process.env.MONGODB_URL)
 
 app.use('/user',AuthRouter);
 app.use('/user/orders',verifyAuthentication,OrderRouter);
-// app.use('/user/order',OrderRouter);
 app.use('/user/cart',verifyAuthentication,CartRouter);
 app.use('/products/search',SearchRouter);
 
