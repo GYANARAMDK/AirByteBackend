@@ -24,7 +24,7 @@ const AuthRouter=require('.//Router/AuthRouter')
 const OrderRouter=require('.//Router/OrderRouter')
 const SearchRouter=require('.//Router/SearchRouter')
 const verifyAuthentication =require('./Controler/Middlewares/verifyauthentication');
-
+const ProductRouter=require('.//Router/ProductRouter');
 
 
 
@@ -40,6 +40,7 @@ app.use('/user',AuthRouter);
 app.use('/user/orders',verifyAuthentication,OrderRouter);
 app.use('/user/cart',verifyAuthentication,CartRouter);
 app.use('/products/search',SearchRouter);
+app.use('/products',ProductRouter);
 
 app.get('/',(req,res)=>{
     res.send("server is started")
