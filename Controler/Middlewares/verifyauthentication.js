@@ -1,7 +1,7 @@
 const jwt=require('jsonwebtoken')
 const verifyAuthentication= (req,res,next)=>{
-    const authHeader=req.header.authorization;
-    // const authHeader=req.header['authorization'];
+    // const authHeader=req.header.authorization;
+    const authHeader=req.header['authorization'];
     if(authHeader){
         const token = authHeader.split(' ')[1];
         jwt.verify(token,process.env.JWT_SECRET_KEY,(error,user)=>{
