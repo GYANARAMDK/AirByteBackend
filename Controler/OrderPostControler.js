@@ -68,7 +68,7 @@ const orderpostcontroler = async (req, res) => {
 
         //razorpay options 
         const options = {
-            totalamount: totalPrice * 100,
+            amount: totalPrice * 100,
             currency: 'INR',
             receipt: `receipt_${orders._id}`,
         }
