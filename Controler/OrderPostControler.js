@@ -72,16 +72,22 @@ const orderpostcontroler = async (req, res) => {
             currency: 'INR',
             receipt: `receipt_${orders._id}`,
         }
+        //create razorpay order
         const razorpayorder = await new Promise((resolve, reject) => {
             razorpayIntance.orders.create(options, (err, order) => {
                 if (err) reject(err);
                 else resolve(order);
             });
         });
+
+        orders.razorpayOrderId = razorpayorder.id;
+        await orders.save();
+
+
         res.status(201).json({
             success: true,
             razorpayorder,
-            message: 'Order created successfully',
+            message: 'Order placed successfully successfully',
         });
     } catch (error) {
         console.error(error);
