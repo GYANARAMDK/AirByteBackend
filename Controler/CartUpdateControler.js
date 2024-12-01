@@ -18,6 +18,7 @@ const CartUpdateControler = async (req, res) => {
             return res.status(404).json({ message: 'Product not found in cart.' });
         }
         user.CartArray[ProductIdIndex].quantity = quantity;
+         await user.save(); 
         res.status(200).json({ message: 'Quantity updated successfully.', cart: user.CartArray });
     } catch (error) {
         console.error(error);
