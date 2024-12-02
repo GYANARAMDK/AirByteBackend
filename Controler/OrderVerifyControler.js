@@ -23,7 +23,7 @@ const OrderVerifyControler = async (req, res) => {
         if (expectedSignature !== razorpay_signature) {
             return res.status(400).json({ error: 'Invalid payment signature' });
         }
-         order.paymentStatus = 'paid'
+         order.paymentStatus = 'Paid'
          order.status = 'Shipped'
          await order.save();
 
