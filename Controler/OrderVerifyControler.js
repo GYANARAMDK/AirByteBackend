@@ -25,7 +25,7 @@ const OrderVerifyControler = async (req, res) => {
         }
         // order.paymentStatus = "paid"
         // order.status = "Shipped"
-        await order.save();
+        // await order.save();
 
         const user = await User.findById(order.userid)
         user.CartArray = [];
