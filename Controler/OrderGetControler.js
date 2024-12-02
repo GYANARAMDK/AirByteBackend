@@ -19,10 +19,11 @@ const OrderGetControler = async (req, res) => {
                 $project: {
                     _id: 1,
                     products: 1,
-                    totalAmount: 1,
+                    totalprice: 1,
                     shippingAddress: 1,
-                    orderStatus: 1,
+                    Status: 1,
                     createdAt: 1,
+                    paymentStatus,
                     user: {
                         name: '$userDetails.name',
 
