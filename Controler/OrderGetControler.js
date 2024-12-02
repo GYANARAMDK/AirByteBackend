@@ -23,7 +23,7 @@ const OrderGetControler = async (req, res) => {
                     shippingAddress: 1,
                     Status: 1,
                     createdAt: 1,
-                    paymentStatus,
+                    paymentStatus:1,
                     user: {
                         name: '$userDetails.name',
 
