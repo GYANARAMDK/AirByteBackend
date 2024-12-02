@@ -14,8 +14,8 @@ const OrderVerifyControler = async (req, res) => {
             return res.status(400).json({ error: 'Invalid order ID' });
         }
         const body = razorpay_order_id + "|" + razorpay_payment_id;
-
-        const expectedSignature = crypto.createHmac('sha256', razorpayInstance.secret)
+        
+        const expectedSignature = crypto.createHmac('sha256', '17H2Uwcg5mxGUAXFvLfr30kE')
             .update(body)
             .digest('hex');
 
