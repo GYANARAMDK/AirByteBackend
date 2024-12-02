@@ -21,7 +21,7 @@ const OrderGetControler = async (req, res) => {
                     products: 1,
                     totalprice: 1,
                     shippingAddress: 1,
-                    Status: 1,
+                    status: 1,
                     createdAt: 1,
                      orderDate:1,
                     paymentStatus:1,
