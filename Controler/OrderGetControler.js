@@ -19,7 +19,7 @@ const OrderGetControler = async (req, res) => {
                 $project: {
                     _id: 1,
                     products: 1,
-                    totalprice: 1,
+                    totalPrice: 1,
                     shippingAddress: 1,
                     status: 1,
                     createdAt: 1,
